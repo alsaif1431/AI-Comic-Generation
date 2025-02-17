@@ -1,3 +1,4 @@
+import os
 import json
 from comic_generation.generate_panels import generate_panels
 from comic_generation.stability_ai import text_to_image
@@ -6,8 +7,8 @@ from comic_generation.create_strip import create_strip
 import streamlit as st
 from PIL import Image
 
-api_key = st.secrets["OPENAI_API_KEY"]
-stability_api_key=st.secrets["STABILITY_KEY"]
+api_key = os.getenv("OPENAI_API_KEY")
+stability_api_key=os.getenv("STABILITY_KEY")
 
 if api_key is None:
     raise ValueError(
